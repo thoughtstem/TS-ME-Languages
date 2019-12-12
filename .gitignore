@@ -1,0 +1,11 @@
+*.dep
+*.swp
+*.swo
+*.swn
+*.zo
+*.bak
+*.scrbl~
+*.rkt~
+*.DS_Store
+doc
+*.bak
