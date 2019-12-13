@@ -26,6 +26,6 @@
           (key-manager-entity)
           (delta-time-entity)
           (if (empty? pages)
-              (cutscene (page ""))
+              (cutscene (page "Hello, World!"))
               (apply cutscene pages))
            )))
