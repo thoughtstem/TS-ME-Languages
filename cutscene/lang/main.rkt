@@ -15,7 +15,7 @@
        (#:width  [w positive?]
         #:height [h positive?])
        #:rest [rest any/c]
-       [returns game?])
+       [returns any/c])
 
  @{The top-level function for the scutscene language.
    Can be run with no parameters to get a basic, default cutscene.}
