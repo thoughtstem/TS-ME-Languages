@@ -65,7 +65,7 @@
          "The space between"
          "the lines is larger.")))
 
-; ----------------- CONTENT MODE
+; ----------------- MODE
 
 (define-example-code
   cutscene mode-1
