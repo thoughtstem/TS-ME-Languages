@@ -22,6 +22,7 @@
 (define-animated-sprite tentacula-sheet 1 14 1 tentacula)
 (define-animated-sprite hagrid-sheet 1 11 1 hagrid)
 (define-animated-sprite oldwizard-sheet 1 6 1 oldwizard)
+(define-animated-sprite pumpkin-sheet 1 8 1 pumpkin)
 
 ; MARIO
 (define-animated-sprite princesspeach-sheet 1 2 1 princesspeach)
