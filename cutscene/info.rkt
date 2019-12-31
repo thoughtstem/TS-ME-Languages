@@ -3,7 +3,7 @@
 (define scribblings '(("scribblings/manual.scrbl" (multi-page))))
 
 (define deps '(
-  "https://github.com/thoughtstem/meta-engine.git"
+  "https://github.com/thoughtstem/meta-engine.git?path=meta-engine"
   "https://github.com/thoughtstem/fandom-sprites-me.git"
   "https://github.com/thoughtstem/TS-GE-Katas.git?path=ts-kata-util"
   ))
