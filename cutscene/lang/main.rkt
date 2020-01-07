@@ -1,6 +1,7 @@
 #lang at-exp racket
 
-(provide make-entity)
+(provide make-entity
+         cutscene-file)
 
 (require meta-engine
          ts-kata-util ;needed for define/contract/doc
@@ -38,6 +39,8 @@
           spr
           (position pos (get-movement-vector))))
 
+(define cutscene-file (make-parameter #f))
+
 (define/contract/doc (story-cutscene #:width  [w 800]
                                      #:height [h 600]
                                     . pages)
@@ -49,13 +52,24 @@
 
  @{The top-level function for the cutscene language.
    Can be run with no parameters to get a basic, default cutscene.}
-  
-  (play! #:width w
-         #:height h
-         (game
-          (key-manager-entity)
-          (delta-time-entity)
-          (if (empty? pages)
-              (cutscene (page "Hello, World!"))
-              (apply cutscene pages))
-           )))
+
+   (displayln "Preparing game")
+
+   (displayln (cutscene-file))
+
+   (define g
+     (game
+       (key-manager-entity)
+       (delta-time-entity)
+       (if (empty? pages)
+         (cutscene (page "Hello, World!"))
+         (apply cutscene pages))))
+
+   (displayln "Game ready.  About to play!")
+
+   (play! #:width w
+          #:height h
+          (if (cutscene-file)
+            (reload #:on (file-changed (cutscene-file))
+                    g)
+            g)))
