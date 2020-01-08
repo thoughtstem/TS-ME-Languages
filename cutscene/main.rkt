@@ -13,8 +13,15 @@
                  (datum->syntax (first ret)
                                 `(begin
                                    (cutscene-file ,(syntax-source (first ret)) ) ) ))
+
                
-               (cons prelude ret))) 
+               (if (path? (syntax-source (first ret))) 
+                 (cons prelude ret)
+                 ret)
+               
+               )
+  
+  ) 
 
 ;if you (require cutscene)
 (provide (all-from-out "./lang.rkt"))
