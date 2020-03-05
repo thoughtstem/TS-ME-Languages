@@ -1,6 +1,6 @@
 #lang at-exp racket
 
-(provide make-entity
+(provide ;make-entity
          cutscene-file)
 
 (require meta-engine
@@ -10,18 +10,36 @@
          )
 
 
-(define (make-entity [s "[META-SPRITE]"]
-                     #:scale       [scale 1]
-                     #:font-size   [f-size 13]
-                     #:font-face   [f-face MONOSPACE-FONT-FACE]
-                     #:font-family [f-family 'modern]
-                     #:font-style  [f-style  'normal]
-                     #:font-weight [f-weight 'normal]
-                     #:color       [color 'yellow]
-                     #:underlined? [underlined? #f]
-                     #:position  [pos (posn 400 300)]
-                     #:direction [dir 0]
-                     #:speed     [spd 0])
+(define/contract/doc (make-entity [s "[META-SPRITE]"]
+                                  #:scale       [scale 1]
+                                  #:font-size   [f-size 13]
+                                  #:font-face   [f-face MONOSPACE-FONT-FACE]
+                                  #:font-family [f-family 'modern]
+                                  #:font-style  [f-style  'normal]
+                                  #:font-weight [f-weight 'normal]
+                                  #:color       [color 'yellow]
+                                  #:underlined? [underlined? #f]
+                                  #:position  [pos (posn 400 300)]
+                                  #:direction [dir 0]
+                                  #:speed     [spd 0])
+
+  (->i ()
+       ([s any/c]
+        #:scale       [scale number?]
+        #:font-size   [f-size positive?]
+        #:font-face   [f-face any/c]
+        #:font-family [f-family symbol?]
+        #:font-style  [f-style  symbol?]
+        #:font-weight [f-weight symbol?]
+        #:color       [color (or/c symbol? object? string?)]
+        #:underlined? [underlined? boolean?]
+        #:position    [pos any/c]
+        #:direction   [dir number?]
+        #:speed       [spd positive?])
+  [returns any/c])
+
+ @{Function to make an independent entity.}
+  
   (define spr (if (string? s)
                   (sprite (make-text s
                                      #:scale       scale

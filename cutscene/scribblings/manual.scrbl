@@ -14,3 +14,5 @@
 @section{Functions}
 
 @(include-extracted "../lang/main.rkt")
+@(include-extracted meta-engine/extensions/sprites/main)
+@(include-extracted meta-engine/addons/cutscene/main)
