@@ -31,7 +31,7 @@
         #:font-family [f-family symbol?]
         #:font-style  [f-style  symbol?]
         #:font-weight [f-weight symbol?]
-        #:color       [color (or/c symbol? object? string?)]
+        #:color       [color any/c]
         #:underlined? [underlined? boolean?]
         #:position    [pos any/c]
         #:direction   [dir number?]
